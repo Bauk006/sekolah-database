@@ -41,15 +41,14 @@ ALTER TABLE public.nilai ADD CONSTRAINT nilai_siswa_id_fkey FOREIGN KEY (siswa_i
 INSERT INTO public.siswa (nama,umur,jurusan) VALUES
 	 ('Andi',16,'IPA'),
 	 ('Budi',17,'IPS'),
-	 ('Saskia',16,'IPS'),
-	 ('Hanif',17,'IPA'),
-	 ('Rangga',17,'IPS');
+	 ('Hanif',17,'IPS'), -- Memperbarui / Update Jurusan 
+	 ('Rangga',17,'IPS'),
+	 ('Saskia',16,'IPA');
 
-INSERT INTO public.nilai (mata_pelajaran,nilai) VALUES
+INSERT INTO public.nilai (mata_pelajaran,nilai) VALUES -- Menghapus satu data nilai siswa
 	 ('Matematika',85),
 	 ('Bahasa Inggris',90),
 	 ('Bahasa Jawa',75),
-	 ('Kimia',100),
 	 ('Sejarah',90);
 
 -- Menampilkan semua siswa beserta jurusan dan nilai rata-ratanya
