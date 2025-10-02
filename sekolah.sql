@@ -1,6 +1,8 @@
 CREATE DATABASE sekolah;
 USE sekolah;
 
+-- Membuat Table siswa dan nilai
+
 -- public.siswa definition
 
 -- Drop table
@@ -34,6 +36,8 @@ CREATE TABLE nilai (
 
 ALTER TABLE public.nilai ADD CONSTRAINT nilai_siswa_id_fkey FOREIGN KEY (siswa_id) REFERENCES siswa(id);
 
+-- Menambahkan Data pada table siswa dan nilai
+
 INSERT INTO public.siswa (nama,umur,jurusan) VALUES
 	 ('Andi',16,'IPA'),
 	 ('Budi',17,'IPS'),
@@ -47,3 +51,15 @@ INSERT INTO public.nilai (mata_pelajaran,nilai) VALUES
 	 ('Bahasa Jawa',75),
 	 ('Kimia',100),
 	 ('Sejarah',90);
+
+-- Menampilkan semua siswa beserta jurusan dan nilai rata-ratanya
+
+INSERT INTO "select siswa.nama, AVG(nilai.nilai) as rata_nilai
+from siswa
+join nilai on siswa.id=nilai.siswa_id 
+group by siswa.nama" (nama,rata_nilai) VALUES
+	 ('Andi',85.0000000000000000),
+	 ('Saskia',75.0000000000000000),
+	 ('Rangga',90.0000000000000000),
+	 ('Budi',90.0000000000000000),
+	 ('Hanif',100.0000000000000000);
