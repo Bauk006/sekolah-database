@@ -28,17 +28,33 @@ ALTER TABLE public.nilai ADD CONSTRAINT nilai_siswa_id_fkey FOREIGN KEY (siswa_i
 INSERT INTO public.siswa (nama,umur,jurusan) VALUES
 	 ('Andi',16,'IPA'),
 	 ('Budi',17,'IPS'),
-	 ('Hanif',17,'IPS'), -- 5. Memperbarui / Update Jurusan (id = 3)
+	 ('Hanif',17,'IPS'), -- 7. Memperbarui / Update Jurusan (id = 3)
 	 ('Rangga',17,'IPS'),
 	 ('Saskia',16,'IPA');
 
-INSERT INTO public.nilai (mata_pelajaran,nilai) VALUES -- 6. Menghapus satu data nilai siswa (siswa_id = 4)
+INSERT INTO public.nilai (mata_pelajaran,nilai) VALUES -- 8. Menghapus satu data nilai siswa (siswa_id = 4)
 	 ('Matematika',85),
 	 ('Bahasa Inggris',90),
 	 ('Bahasa Jawa',75),
 	 ('Sejarah',90);
 
--- 4. Menampilkan semua siswa beserta jurusan dan nilai rata-ratanya
+-- 4. Menampilkan semua siswa
+
+INSERT INTO siswa (nama,umur,jurusan) VALUES
+	 ('Andi',16,'IPA'),
+	 ('Budi',17,'IPS'),
+	 ('Hanif',17,'IPA'),
+	 ('Rangga',17,'IPS'),
+	 ('Saskia',16,'IPA');
+
+-- 5. Menampilkan nama siswa dengan jurusan IPA
+
+INSERT INTO siswa (nama) VALUES
+	 ('Andi'),
+	 ('Hanif'),
+	 ('Saskia');
+
+-- 6. Menampilkan rata-rata tiap siswa
 
 INSERT INTO "select siswa.nama, AVG(nilai.nilai) as rata_nilai
 from siswa
